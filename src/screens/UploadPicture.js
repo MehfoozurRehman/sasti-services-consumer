@@ -27,7 +27,7 @@ export default function UploadPicture({route, navigation}) {
           }}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Login');
+              navigation.navigate('SignUp');
             }}
             style={{marginLeft: -5}}>
             <ChevronLeft

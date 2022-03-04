@@ -35,6 +35,9 @@ export default function Login({setIsOn, navigation}) {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Home');
+        }}
         style={{
           backgroundColor: '#38BA6E',
           width: '100%',
