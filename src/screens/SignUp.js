@@ -66,7 +66,7 @@ export default function SignUp({setIsOn, navigation}) {
           marginTop: 20,
           borderRadius: 10,
         }}>
-        <Text>Sign up</Text>
+        <Text style={{color: '#ffffff'}}>Sign up</Text>
       </TouchableOpacity>
       <View
         style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
