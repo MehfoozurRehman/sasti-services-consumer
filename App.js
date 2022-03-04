@@ -9,6 +9,7 @@ import UploadPicture from './src/screens/UploadPicture';
 import Location from './src/screens/Location';
 import Home from './src/screens/Home';
 import ServiceProviders from './src/screens/ServiceProviders';
+import ServiceProviderDetails from './src/screens/ServiceProviderDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,10 @@ export default function App() {
         <Stack.Screen name="Location" component={Location} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ServiceProviders" component={ServiceProviders} />
+        <Stack.Screen
+          name="ServiceProviderDetails"
+          component={ServiceProviderDetails}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

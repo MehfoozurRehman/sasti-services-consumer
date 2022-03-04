@@ -50,7 +50,7 @@ function ServiceProviderCard({navigation}) {
   );
 }
 
-export default function ServiceProviders({route, navigation}) {
+export default function ServiceProviderDetails({route, navigation}) {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
       <View

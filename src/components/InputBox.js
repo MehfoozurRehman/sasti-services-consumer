@@ -1,6 +1,6 @@
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import {Eye, EyeOff} from 'react-native-feather';
+import {Eye, EyeOff, Search} from 'react-native-feather';
 
 export default function InputBox({secure, placeholder, error}) {
   const [focus, setFocus] = useState(false);
@@ -70,6 +70,17 @@ export default function InputBox({secure, placeholder, error}) {
               strokeWidth={1.5}
             />
           )}
+        </TouchableOpacity>
+      ) : null}
+      {placeholder === 'Search' ? (
+        <TouchableOpacity
+          style={{
+            width: 40,
+            height: 30,
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+          }}>
+          <Search stroke="#242424" width={18} height={18} strokeWidth={1.5} />
         </TouchableOpacity>
       ) : null}
     </View>
