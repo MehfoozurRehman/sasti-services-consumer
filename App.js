@@ -1,4 +1,3 @@
-import {View, Text} from 'react-native';
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,8 +7,11 @@ import ForgotPassword from './src/screens/ForgotPassword';
 import ChangePassword from './src/screens/ChangePassword';
 import UploadPicture from './src/screens/UploadPicture';
 import Location from './src/screens/Location';
+import Home from './src/screens/Home';
+import ServiceProviders from './src/screens/ServiceProviders';
 
 const Stack = createNativeStackNavigator();
+
 export default function App() {
   useEffect(() => {
     SplashScreen.hide();
@@ -20,7 +22,8 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{
           header: () => null,
-        }}>
+        }}
+        initialRouteName="Home">
         <Stack.Screen
           name="Login"
           component={Auth}
@@ -35,6 +38,8 @@ export default function App() {
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
         <Stack.Screen name="UploadPicture" component={UploadPicture} />
         <Stack.Screen name="Location" component={Location} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="ServiceProviders" component={ServiceProviders} />
       </Stack.Navigator>
     </NavigationContainer>
   );
