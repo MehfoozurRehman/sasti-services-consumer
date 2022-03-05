@@ -17,6 +17,11 @@ import ChangeLocation from './src/screens/ChangeLocation';
 import BookNow from './src/screens/BookNow';
 import VerificationScreen from './src/screens/VerificationScreen';
 import BookingLists from './src/screens/BookingLists';
+import PrivacyPolicy from './src/screens/PrivacyPolicy';
+import TermsAndConditions from './src/screens/TermsAndConditions';
+import Notifications from './src/screens/Notifications';
+import BookingsEdit from './src/screens/BookingsEdit';
+import BookingDetails from './src/screens/BookingDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +64,14 @@ export default function App() {
         <Stack.Screen name="BookNow" component={BookNow} />
         <Stack.Screen name="Verification" component={VerificationScreen} />
         <Stack.Screen name="BookingLists" component={BookingLists} />
+        <Stack.Screen
+          name="TermsAndConditions"
+          component={TermsAndConditions}
+        />
+        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+        <Stack.Screen name="Notifications" component={Notifications} />
+        <Stack.Screen name="BookingsEdit" component={BookingsEdit} />
+        <Stack.Screen name="BookingDetails" component={BookingDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

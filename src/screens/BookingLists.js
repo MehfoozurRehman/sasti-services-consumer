@@ -19,9 +19,12 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import InputBox from '../components/InputBox';
 import Svg, {G, Path} from 'react-native-svg';
 
-function ProjectCard({noBtns}) {
+function ProjectCard({noBtns, navigation}) {
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('BookingDetails');
+      }}
       style={{
         padding: 20,
         backgroundColor: '#ffffff',
@@ -148,6 +151,9 @@ function ProjectCard({noBtns}) {
             <Text style={{fontSize: 14, color: '#ffffff'}}>Cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('BookingsEdit');
+            }}
             style={{
               width: '49%',
               height: 45,
@@ -160,7 +166,7 @@ function ProjectCard({noBtns}) {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -246,20 +252,21 @@ export default function BookingLists({route, navigation}) {
         </View>
         {selected === 'Ongoing' ? (
           <>
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
+            <ProjectCard navigation={navigation} />
           </>
         ) : (
           <>
-            <ProjectCard noBtns={true} />
-            <ProjectCard noBtns={true} />
-            <ProjectCard noBtns={true} />
+            <ProjectCard noBtns={true} navigation={navigation} />
+            <ProjectCard noBtns={true} navigation={navigation} />
+            <ProjectCard noBtns={true} navigation={navigation} />
           </>
         )}
       </ScrollView>

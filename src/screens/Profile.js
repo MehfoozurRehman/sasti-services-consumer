@@ -7,7 +7,15 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-import {MapPin, ChevronLeft, Edit, Lock} from 'react-native-feather';
+import {
+  MapPin,
+  ChevronLeft,
+  Edit,
+  Lock,
+  Bell,
+  Layers,
+  Pocket,
+} from 'react-native-feather';
 import InputBox from '../components/InputBox';
 
 export default function Profile({route, navigation}) {
@@ -115,6 +123,57 @@ export default function Profile({route, navigation}) {
               Change location
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Notifications');
+            }}
+            style={{
+              flexDirection: 'row',
+              padding: 20,
+              backgroundColor: '#EDF5F2',
+              alignItems: 'center',
+              borderRadius: 10,
+              marginBottom: 10,
+            }}>
+            <Bell stroke="#258D51" width={22} height={22} strokeWidth={2} />
+            <Text style={{color: '#606060', marginLeft: 10}}>
+              Notifications
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('PrivacyPolicy');
+            }}
+            style={{
+              flexDirection: 'row',
+              padding: 20,
+              backgroundColor: '#EDF5F2',
+              alignItems: 'center',
+              borderRadius: 10,
+              marginBottom: 10,
+            }}>
+            <Pocket stroke="#258D51" width={22} height={22} strokeWidth={2} />
+            <Text style={{color: '#606060', marginLeft: 10}}>
+              Privacy Policy
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('TermsAndConditions');
+            }}
+            style={{
+              flexDirection: 'row',
+              padding: 20,
+              backgroundColor: '#EDF5F2',
+              alignItems: 'center',
+              borderRadius: 10,
+              marginBottom: 10,
+            }}>
+            <Layers stroke="#258D51" width={22} height={22} strokeWidth={2} />
+            <Text style={{color: '#606060', marginLeft: 10}}>
+              Terms & Conditions
+            </Text>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity
           onPress={() => {
@@ -127,7 +186,6 @@ export default function Profile({route, navigation}) {
             justifyContent: 'center',
             height: 45,
             borderRadius: 10,
-            marginTop: 100,
           }}>
           <Text style={{color: '#ffffff'}}>Logout</Text>
         </TouchableOpacity>
