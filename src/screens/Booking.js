@@ -5,13 +5,14 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
-  Image,
+  TextInput,
 } from 'react-native';
-import {ArrowLeft, ChevronLeft} from 'react-native-feather';
-import InputBox from '../components/InputBox';
+import {ChevronLeft} from 'react-native-feather';
+import {Rating} from 'react-native-ratings';
 import Svg, {Path, Circle} from 'react-native-svg';
 
-export default function Booking({route, navigation}) {
+export default function Booking({navigation}) {
+  const [isReview, setIsReview] = useState(false);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#F2FBF8'}}>
       <View
@@ -371,7 +372,7 @@ export default function Booking({route, navigation}) {
         </Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Review');
+            setIsReview(true);
           }}
           style={{
             backgroundColor: '#38BA6E',
@@ -400,6 +401,102 @@ export default function Booking({route, navigation}) {
           <Text style={{color: '#38BA6E'}}>Go to Home</Text>
         </TouchableOpacity>
       </ScrollView>
+      {isReview ? <RatingPopup setIsReview={setIsReview} /> : null}
     </SafeAreaView>
+  );
+}
+
+function RatingPopup({setIsReview}) {
+  return (
+    <View
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,.7)',
+        padding: 20,
+      }}>
+      <View
+        style={{
+          width: '100%',
+          backgroundColor: '#F3F7F9',
+          padding: 20,
+          borderRadius: 15,
+        }}>
+        <Text
+          style={{
+            color: '#242424',
+            fontSize: 22,
+            fontWeight: 'bold',
+          }}>
+          Review
+        </Text>
+        <TextInput
+          multiline={true}
+          placeholder="Write review"
+          placeholderTextColor="#000000"
+          style={{
+            marginVertical: 10,
+            backgroundColor: '#FFFFFF',
+            minHeight: 150,
+            color: '#000000',
+            textAlignVertical: 'top',
+            fontWeight: '500',
+            padding: 15,
+            borderRadius: 10,
+          }}
+        />
+        <Rating
+          ratingBackgroundColor="#B5C3C3"
+          tintColor="#F3F7F9"
+          ratingColor="#38BA6E"
+          type="custom"
+        />
+        <TouchableOpacity
+          onPress={() => {
+            setIsReview(false);
+          }}
+          style={{
+            backgroundColor: '#38BA6E',
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 45,
+            marginTop: 20,
+            borderRadius: 10,
+          }}>
+          <Text
+            style={{
+              color: '#ffffff',
+            }}>
+            Review
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setIsReview(false);
+          }}
+          style={{
+            backgroundColor: '#ffffff',
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 45,
+            marginTop: 10,
+            borderRadius: 10,
+          }}>
+          <Text
+            style={{
+              color: '#242424',
+            }}>
+            Not now
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
