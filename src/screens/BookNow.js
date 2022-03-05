@@ -38,6 +38,8 @@ export default function BookNow({route, navigation}) {
   const [selectedDay, setSelectedDay] = useState('Sun');
   const [selectedFromTime, setSelectedFromTime] = useState('9PM');
   const [selectedToTime, setSelectedToTime] = useState('11AM');
+  const [selectedYear, setSelectedYear] = useState(22);
+  const [selectedMonth, setSelectedMonth] = useState(3);
   const week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fir', 'Sat'];
   const timeAm = [
     'AM',
@@ -71,6 +73,32 @@ export default function BookNow({route, navigation}) {
   const feb = 28;
   const mar = 31;
   const apr = 30;
+  const may = 31;
+  const jun = 30;
+  const jul = 29;
+  const aug = 31;
+  const sep = 30;
+  const oct = 31;
+  const nov = 30;
+  const dec = 31;
+  const listOfyear = [];
+  for (let i = 0; i <= 99; i++) {
+    listOfyear.push(i < 10 ? '20' + '0' + i : '20' + i);
+  }
+  const months = [
+    'jan',
+    'feb',
+    'mar',
+    'apr',
+    'may',
+    'jun',
+    'jul',
+    'aug',
+    'sep',
+    'oct',
+    'nov',
+    'dec',
+  ];
   return (
     <View
       style={{
@@ -184,9 +212,21 @@ export default function BookNow({route, navigation}) {
             Book Now
           </Text>
         </View>
-
         <ScrollView style={{paddingHorizontal: 20}}>
-          <InputBox placeholder="Address" />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('ChangeLocation');
+            }}
+            style={{
+              backgroundColor: '#F2FBF8',
+              height: 45,
+              borderRadius: 10,
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: 20,
+            }}>
+            <Text style={{color: '#242424'}}>Select Address</Text>
+          </TouchableOpacity>
           <InputBox placeholder="Service" />
           <Text
             style={{
@@ -204,7 +244,12 @@ export default function BookNow({route, navigation}) {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <TouchableOpacity style={{padding: 5}}>
+            <TouchableOpacity
+              style={{padding: 5}}
+              onPress={() => {
+                setSelectedMonth(selectedMonth === 1 ? 12 : selectedMonth - 1);
+                selectedMonth === 1 ? setSelectedYear(selectedYear - 1) : null;
+              }}>
               <ChevronLeft
                 stroke="#B5C3C3"
                 fill="#fff"
@@ -213,8 +258,32 @@ export default function BookNow({route, navigation}) {
                 strokeWidth={2}
               />
             </TouchableOpacity>
-            <Text style={{color: '#242424'}}> Jan 2022</Text>
-            <TouchableOpacity style={{padding: 5}}>
+            {months
+              .filter((item, i) => i + 1 === selectedMonth)
+              .map((month, i) => {
+                return (
+                  <Text
+                    key={i}
+                    style={{color: '#242424', textTransform: 'capitalize'}}>
+                    {month}{' '}
+                  </Text>
+                );
+              })}
+            {listOfyear
+              .filter((item, i) => i === selectedYear)
+              .map((year, i) => {
+                return (
+                  <Text key={i} style={{color: '#242424'}}>
+                    {year}
+                  </Text>
+                );
+              })}
+            <TouchableOpacity
+              style={{padding: 5}}
+              onPress={() => {
+                setSelectedMonth(selectedMonth === 12 ? 1 : selectedMonth + 1);
+                selectedMonth === 12 ? setSelectedYear(selectedYear + 1) : null;
+              }}>
               <ChevronRight
                 stroke="#B5C3C3"
                 fill="#fff"
@@ -305,7 +374,7 @@ export default function BookNow({route, navigation}) {
         <View
           style={{
             padding: 20,
-            backgroundColor: '#ffffff',
+            backgroundColor: '#F2FBF8',
             flexDirection: 'row',
             alignItems: 'center',
           }}>
