@@ -1158,7 +1158,11 @@ export default function Home({navigation}) {
           alignItems: 'center',
         }}>
         <View>
-          <TouchableOpacity style={{marginTop: 40}}>
+          <TouchableOpacity
+            style={{marginTop: 40}}
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}>
             <Image
               source={require('../assets/userPic.png')}
               style={{width: 40, height: 40, borderRadius: 50}}
@@ -1197,7 +1201,7 @@ export default function Home({navigation}) {
                 textAlign: 'center',
                 transform: [{rotate: '270deg'}],
               }}>
-              Hello
+              Home
             </Text>
             {selected === 'home' ? (
               <View
@@ -1385,6 +1389,9 @@ export default function Home({navigation}) {
             </Text>
           </View>
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('ChangeLocation');
+            }}
             style={{
               alignItems: 'center',
               backgroundColor: '#ffffff',

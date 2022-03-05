@@ -11,6 +11,9 @@ import Home from './src/screens/Home';
 import ServiceProviders from './src/screens/ServiceProviders';
 import ServiceProviderDetails from './src/screens/ServiceProviderDetails';
 import Booking from './src/screens/Booking';
+import Profile from './src/screens/Profile';
+import ProfileEdit from './src/screens/ProfileEdit';
+import ChangeLocation from './src/screens/ChangeLocation';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +28,7 @@ export default function App() {
         screenOptions={{
           header: () => null,
         }}
-        initialRouteName="Booking">
+        initialRouteName="login">
         <Stack.Screen
           name="Login"
           component={Auth}
@@ -47,6 +50,9 @@ export default function App() {
           component={ServiceProviderDetails}
         />
         <Stack.Screen name="Booking" component={Booking} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
+        <Stack.Screen name="ChangeLocation" component={ChangeLocation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
