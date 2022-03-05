@@ -14,7 +14,6 @@ import InputBox from '../components/InputBox';
 import Svg, {Path} from 'react-native-svg';
 
 function TimePickerCard({index, data, selected, setSelected}) {
-  console.log(index + 1);
   return (
     <TouchableOpacity
       onPress={() => {
