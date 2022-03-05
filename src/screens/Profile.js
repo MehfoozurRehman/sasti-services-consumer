@@ -129,7 +129,7 @@ export default function Profile({route, navigation}) {
             borderRadius: 10,
             marginTop: 100,
           }}>
-          <Text>Logout</Text>
+          <Text style={{color: '#ffffff'}}>Logout</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

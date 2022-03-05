@@ -256,7 +256,7 @@ export default function ServiceProviderDetails({route, navigation}) {
               height: 45,
               borderRadius: 10,
             }}>
-            <Text>Book Now</Text>
+            <Text style={{color: '#ffffff'}}>Book Now</Text>
           </TouchableOpacity>
         </View>
       </View>

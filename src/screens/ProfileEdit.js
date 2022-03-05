@@ -114,7 +114,7 @@ export default function ProfileEdit({route, navigation}) {
               height: 45,
               borderRadius: 10,
             }}>
-            <Text>Save</Text>
+            <Text style={{color: '#ffffff'}}>Save</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

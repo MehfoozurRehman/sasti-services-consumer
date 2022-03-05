@@ -55,7 +55,7 @@ export default function SignUp({setIsOn, navigation}) {
       />
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('UploadPicture');
+          navigation.navigate('Verification');
         }}
         style={{
           backgroundColor: '#38BA6E',

@@ -1157,32 +1157,17 @@ export default function Home({navigation}) {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <View>
-          <TouchableOpacity
-            style={{marginTop: 40}}
-            onPress={() => {
-              navigation.navigate('Profile');
-            }}>
-            <Image
-              source={require('../assets/userPic.png')}
-              style={{width: 40, height: 40, borderRadius: 50}}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={{marginTop: 10, alignItems: 'center'}}>
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                backgroundColor: '#EDF5F2',
-                borderRadius: 8,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Search stroke="#242424" width={22} height={22} strokeWidth={2} />
-            </View>
-            <Text style={{color: '#B5C3C3', fontSize: 12}}>Search</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={{marginTop: 40, marginBottom: 100}}
+          onPress={() => {
+            navigation.navigate('Profile');
+          }}>
+          <Image
+            source={require('../assets/userPic.png')}
+            style={{width: 40, height: 40, borderRadius: 50}}
+          />
+        </TouchableOpacity>
+
         <View>
           <TouchableOpacity
             onPress={() => {
@@ -1352,6 +1337,9 @@ export default function Home({navigation}) {
           </TouchableOpacity>
         </View>
         <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('BookingLists');
+          }}
           style={{marginTop: 10, alignItems: 'center', marginBottom: 30}}>
           <View
             style={{
@@ -1395,7 +1383,7 @@ export default function Home({navigation}) {
             style={{
               alignItems: 'center',
               backgroundColor: '#ffffff',
-              elevation: 1,
+
               width: 55,
               height: 55,
               borderRadius: 10,
