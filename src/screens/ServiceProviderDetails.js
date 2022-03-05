@@ -30,6 +30,9 @@ export default function ServiceProviderDetails({route, navigation}) {
         }}>
         <View style={{alignItems: 'flex-start', width: '50%'}}>
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('ServiceProviders');
+            }}
             style={{
               backgroundColor: '#ffffff',
               width: 45,

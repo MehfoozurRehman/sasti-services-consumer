@@ -114,6 +114,9 @@ export default function BookNow({route, navigation}) {
         }}>
         <View style={{alignItems: 'flex-start', width: '50%'}}>
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('ServiceProviderDetails');
+            }}
             style={{
               backgroundColor: '#ffffff',
               width: 45,
@@ -393,7 +396,7 @@ export default function BookNow({route, navigation}) {
               height: 45,
               borderRadius: 10,
             }}>
-            <Text>Book</Text>
+            <Text style={{color: '#ffffff'}}>Book</Text>
           </TouchableOpacity>
         </View>
       </View>

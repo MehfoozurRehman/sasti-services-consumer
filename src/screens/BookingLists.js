@@ -19,7 +19,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import InputBox from '../components/InputBox';
 import Svg, {G, Path} from 'react-native-svg';
 
-function ProjectCard() {
+function ProjectCard({noBtns}) {
   return (
     <View
       style={{
@@ -54,6 +54,25 @@ function ProjectCard() {
           marginTop: 14,
         }}>
         <View style={{flexDirection: 'column'}}>
+          <View
+            style={{
+              height: 30,
+              width: 100,
+              backgroundColor: '#D3EBDF',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 10,
+              marginBottom: 6,
+            }}>
+            <Text
+              style={{
+                fontSize: 12,
+                color: '#258D51',
+              }}>
+              Plumber
+            </Text>
+          </View>
           <Text
             style={{
               fontSize: 16,
@@ -108,37 +127,39 @@ function ProjectCard() {
           <Text style={{fontSize: 13, color: '#212121'}}>Address</Text>
         </View>
       </View>
-      <View
-        style={{
-          width: '100%',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginVertical: 20,
-        }}>
-        <TouchableOpacity
+      {noBtns ? null : (
+        <View
           style={{
-            width: '49%',
-            height: 45,
-            backgroundColor: '#FFB743',
-            borderRadius: 20,
-            justifyContent: 'center',
+            width: '100%',
+            flexDirection: 'row',
             alignItems: 'center',
+            justifyContent: 'space-between',
+            marginVertical: 20,
           }}>
-          <Text style={{fontSize: 14, color: '#ffffff'}}>Cancel</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            width: '49%',
-            height: 45,
-            backgroundColor: '#38BA6E',
-            borderRadius: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 14, color: '#ffffff'}}>Reschedule</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            style={{
+              width: '49%',
+              height: 45,
+              backgroundColor: '#FFB743',
+              borderRadius: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text style={{fontSize: 14, color: '#ffffff'}}>Cancel</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: '49%',
+              height: 45,
+              backgroundColor: '#38BA6E',
+              borderRadius: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text style={{fontSize: 14, color: '#ffffff'}}>Reschedule</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 }
@@ -223,26 +244,24 @@ export default function BookingLists({route, navigation}) {
             setSelected={setSelected}
           />
         </View>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {selected === 'Ongoing' ? (
+          <>
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+          </>
+        ) : (
+          <>
+            <ProjectCard noBtns={true} />
+            <ProjectCard noBtns={true} />
+            <ProjectCard noBtns={true} />
+          </>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
