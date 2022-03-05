@@ -14,6 +14,7 @@ import Booking from './src/screens/Booking';
 import Profile from './src/screens/Profile';
 import ProfileEdit from './src/screens/ProfileEdit';
 import ChangeLocation from './src/screens/ChangeLocation';
+import BookNow from './src/screens/BookNow';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,7 @@ export default function App() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
         <Stack.Screen name="ChangeLocation" component={ChangeLocation} />
+        <Stack.Screen name="BookNow" component={BookNow} />
       </Stack.Navigator>
     </NavigationContainer>
   );
