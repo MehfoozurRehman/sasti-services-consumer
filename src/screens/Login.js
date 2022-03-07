@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import React from 'react';
 import InputBox from '../components/InputBox';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 export default function Login({setIsOn, navigation}) {
   return (
@@ -20,20 +21,48 @@ export default function Login({setIsOn, navigation}) {
       </Text>
       <InputBox placeholder="Email Address" />
       <InputBox placeholder="Password" secure={true} />
-      <TouchableOpacity
-        style={{marginLeft: 'auto', marginBottom: 100}}
-        onPress={() => {
-          navigation.navigate('ForgotPassword');
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 80,
         }}>
-        <Text
-          style={{
-            color: '#242424',
-            textDecorationColor: '#242424',
-            textDecorationLine: 'underline',
+        <BouncyCheckbox
+          size={22}
+          fillColor="#258D51"
+          unfillColor="#FFFFFF"
+          text={
+            <View
+              style={{
+                flexDirection: 'row',
+              }}>
+              <Text style={{color: '#8D8C8C', marginLeft: -6}}>
+                Remember Me
+              </Text>
+            </View>
+          }
+          iconStyle={{borderColor: '#258D51'}}
+          textStyle={{
+            fontFamily: 'JosefinSans-Regular',
+            textDecorationLine: 'none',
+          }}
+          // onPress={(isChecked: boolean) => {}}
+        ></BouncyCheckbox>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('ForgotPassword');
           }}>
-          Forgot Password?
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: '#242424',
+              textDecorationColor: '#242424',
+              textDecorationLine: 'underline',
+            }}>
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
+      </View>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate('Home');

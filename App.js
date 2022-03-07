@@ -22,6 +22,8 @@ import TermsAndConditions from './src/screens/TermsAndConditions';
 import Notifications from './src/screens/Notifications';
 import BookingsEdit from './src/screens/BookingsEdit';
 import BookingDetails from './src/screens/BookingDetails';
+import Onboarding1 from './src/screens/Onboarding1';
+import Onboarding2 from './src/screens/Onboarding2';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +38,9 @@ export default function App() {
         screenOptions={{
           header: () => null,
         }}
-        initialRouteName="login">
+        initialRouteName="Onboarding1">
+        <Stack.Screen name="Onboarding1" component={Onboarding1} />
+        <Stack.Screen name="Onboarding2" component={Onboarding2} />
         <Stack.Screen
           name="Login"
           component={Auth}
